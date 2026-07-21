@@ -1,6 +1,24 @@
 // notes array
 let allNotes = [];
 
+// load notes from storage
+function loadNotes() {
+    let saved = localStorage.getItem('myNotes');
+    if (saved != null) {
+        allNotes = JSON.parse(saved);
+        showAllNotes();
+    }
+}
+
+// save notes to storage
+function saveNotes() {
+    localStorage.setItem('myNotes', JSON.stringify(allNotes));
+}
+
+// load on page start
+loadNotes();
+
+
 // get html elements
 const addBtn = document.getElementById('addBtn');
 const noteTitle = document.getElementById('noteTitle');
@@ -10,6 +28,9 @@ const notesContainer = document.getElementById('notesContainer');
 // button click
 addBtn.addEventListener('click', function() {
     addNewNote();
+        // save to storage
+    saveNotes();
+
 });
 
 // add note
@@ -72,6 +93,9 @@ function removeNote(noteId) {
             allNotes.splice(i, 1);
             break;
         }
+            // save to storage
+    saveNotes();
+
     }
 
     // refresh
