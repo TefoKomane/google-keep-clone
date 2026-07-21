@@ -82,15 +82,24 @@ function showAllNotes() {
         noteElement.className = 'note';
         noteElement.style.backgroundColor = note.color;
 
+        // check if pinned
+        if (note.pinned == true) {
+            noteElement.classList.add('pinned-note');
+        }
+
         // add html
         noteElement.innerHTML = '<div class="note-title">' + note.title + '</div>';
         noteElement.innerHTML += '<div class="note-content">' + note.content + '</div>';
+        noteElement.innerHTML += '<div class="note-buttons">';
+        noteElement.innerHTML += '<button class="note-pin" onclick="togglePin(' + note.id + ')">Pin</button>';
         noteElement.innerHTML += '<button class="note-delete" onclick="removeNote(' + note.id + ')">Delete</button>';
+        noteElement.innerHTML += '</div>';
 
         // add to page
         notesContainer.appendChild(noteElement);
     }
 }
+
 
 
 // delete note
@@ -108,4 +117,25 @@ function removeNote(noteId) {
 
     // refresh
     showAllNotes();
+}
+
+// toggle pin
+function togglePin(noteId) {
+    // find note
+    for (let i = 0; i < allNotes.length; i++) {
+        if (allNotes[i].id == noteId) {
+            if (allNotes[i].pinned == true) {
+                allNotes[i].pinned = false;
+            } else {
+                allNotes[i].pinned = true;
+            }
+            break;
+        }
+    }
+
+    // refresh
+    showAllNotes();
+
+    // save
+    saveNotes();
 }
