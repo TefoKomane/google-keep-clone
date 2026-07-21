@@ -25,6 +25,36 @@ const noteTitle = document.getElementById('noteTitle');
 const noteContent = document.getElementById('noteContent');
 const notesContainer = document.getElementById('notesContainer');
 
+// search input
+const searchInput = document.getElementById('searchInput');
+
+// search event
+searchInput.addEventListener('keyup', function() {
+    searchNotes();
+});
+
+// search notes
+function searchNotes() {
+    let searchTerm = searchInput.value.toLowerCase();
+
+    // get all note elements
+    let noteElements = document.querySelectorAll('.note');
+
+    // loop through notes
+    noteElements.forEach(function(noteElement) {
+        let title = noteElement.querySelector('.note-title').textContent.toLowerCase();
+        let content = noteElement.querySelector('.note-content').textContent.toLowerCase();
+
+        // check if search term matches
+        if (title.includes(searchTerm) || content.includes(searchTerm)) {
+            noteElement.style.display = 'block';
+        } else {
+            noteElement.style.display = 'none';
+        }
+    });
+}
+
+
 // dark mode button
 const darkModeBtn = document.getElementById('darkModeBtn');
 
