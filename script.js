@@ -25,6 +25,26 @@ const noteTitle = document.getElementById('noteTitle');
 const noteContent = document.getElementById('noteContent');
 const notesContainer = document.getElementById('notesContainer');
 
+// clear all button
+const clearAllBtn = document.getElementById('clearAllBtn');
+
+// clear all click
+clearAllBtn.addEventListener('click', function() {
+    clearAllNotes();
+});
+
+// clear all notes
+function clearAllNotes() {
+    let confirm = window.confirm('Are you sure you want to delete all notes?');
+
+    if (confirm == true) {
+        allNotes = [];
+        showAllNotes();
+        saveNotes();
+    }
+}
+
+
 // search input
 const searchInput = document.getElementById('searchInput');
 
