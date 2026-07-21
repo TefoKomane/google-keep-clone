@@ -194,6 +194,90 @@ header h1 {
     box-shadow: 0 2px 8px rgba(66, 133, 244, 0.2);
 }
 
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#darkModeBtn {
+    padding: 8px 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #202124;
+}
+
+#darkModeBtn:hover {
+    background-color: #e8eaed;
+}
+
+/* dark mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #e8eaed;
+}
+
+body.dark-mode .container {
+    background-color: #121212;
+}
+
+body.dark-mode header {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .input-section {
+    background-color: #262626;
+    color: #e8eaed;
+}
+
+body.dark-mode #noteTitle,
+body.dark-mode #noteContent {
+    background-color: #262626;
+    color: #e8eaed;
+}
+
+body.dark-mode .note {
+    background-color: #262626;
+    color: #e8eaed;
+}
+
+body.dark-mode .note-title {
+    color: #e8eaed;
+}
+
+body.dark-mode .note-content {
+    color: #b0b0b0;
+}
+
+body.dark-mode .note-delete,
+body.dark-mode .note-pin {
+    background-color: #1e1e1e;
+    color: #e8eaed;
+}
+
+body.dark-mode .note-delete:hover,
+body.dark-mode .note-pin:hover {
+    background-color: #2e2e2e;
+}
+
+body.dark-mode #darkModeBtn {
+    background-color: #262626;
+    border-color: #404040;
+    color: #e8eaed;
+}
+
+body.dark-mode #darkModeBtn:hover {
+    background-color: #2e2e2e;
+}
+
+body.dark-mode #noteColor {
+    background-color: #262626;
+    color: #e8eaed;
+    border-color: #404040;
+}
 
 @media (max-width: 480px) {
     .container {
