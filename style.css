@@ -351,6 +351,35 @@ body.dark-mode #searchInput:focus {
     border-color: #4285F4;
 }
 
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#clearAllBtn {
+    padding: 8px 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #202124;
+}
+
+#clearAllBtn:hover {
+    background-color: #e8eaed;
+}
+
+body.dark-mode #clearAllBtn {
+    background-color: #262626;
+    border-color: #404040;
+    color: #e8eaed;
+}
+
+body.dark-mode #clearAllBtn:hover {
+    background-color: #2e2e2e;
+}
+
 
 @media (max-width: 480px) {
     .container {
