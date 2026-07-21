@@ -111,6 +111,8 @@ function showAllNotes() {
         // make div
         let noteElement = document.createElement('div');
         noteElement.className = 'note';
+        noteElement.draggable = true;
+        noteElement.id = 'note-' + note.id;
         noteElement.style.backgroundColor = note.color;
 
         // check if pinned
@@ -126,10 +128,17 @@ function showAllNotes() {
         noteElement.innerHTML += '<button class="note-delete" onclick="removeNote(' + note.id + ')">Delete</button>';
         noteElement.innerHTML += '</div>';
 
+        // drag events
+        noteElement.addEventListener('dragstart', handleDragStart);
+        noteElement.addEventListener('dragover', handleDragOver);
+        noteElement.addEventListener('drop', handleDrop);
+        noteElement.addEventListener('dragend', handleDragEnd);
+
         // add to page
         notesContainer.appendChild(noteElement);
     }
 }
+
 
 
 
@@ -169,4 +178,57 @@ function togglePin(noteId) {
 
     // save
     saveNotes();
+}
+
+// drag variables
+let draggedNote = null;
+
+// drag start
+function handleDragStart(e) {
+    draggedNote = this;
+    this.style.opacity = '0.5';
+}
+
+// drag over
+function handleDragOver(e) {
+    e.preventDefault();
+}
+
+// drop
+function handleDrop(e) {
+    e.preventDefault();
+
+    if (draggedNote != this) {
+        // swap notes
+        let draggedId = draggedNote.id.replace('note-', '');
+        let droppedId = this.id.replace('note-', '');
+
+        let draggedIndex = -1;
+        let droppedIndex = -1;
+
+        for (let i = 0; i < allNotes.length; i++) {
+            if (allNotes[i].id == draggedId) {
+                draggedIndex = i;
+            }
+            if (allNotes[i].id == droppedId) {
+                droppedIndex = i;
+            }
+        }
+
+        // swap
+        let temp = allNotes[draggedIndex];
+        allNotes[draggedIndex] = allNotes[droppedIndex];
+        allNotes[droppedIndex] = temp;
+
+        // refresh
+        showAllNotes();
+
+        // save
+        saveNotes();
+    }
+}
+
+// drag end
+function handleDragEnd(e) {
+    this.style.opacity = '1';
 }
