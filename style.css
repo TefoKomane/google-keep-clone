@@ -169,6 +169,31 @@ header h1 {
     border-color: #4285F4;
 }
 
+.note-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.note-pin {
+    background-color: #f8f9fa;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #5f6368;
+    font-size: 12px;
+}
+
+.note-pin:hover {
+    background-color: #e8eaed;
+}
+
+.pinned-note {
+    border-top: 4px solid #4285F4;
+    box-shadow: 0 2px 8px rgba(66, 133, 244, 0.2);
+}
+
 
 @media (max-width: 480px) {
     .container {
