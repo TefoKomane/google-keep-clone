@@ -50,7 +50,8 @@ function addNewNote() {
         id: Date.now(),
         title: title,
         content: content,
-        color: color
+        color: color,
+        pinned: false
     };
 
     // add to array
