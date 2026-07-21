@@ -146,6 +146,30 @@ header h1 {
     }
 }
 
+.color-picker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.color-picker label {
+    font-weight: bold;
+    color: #202124;
+}
+
+#noteColor {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#noteColor:hover {
+    border-color: #4285F4;
+}
+
+
 @media (max-width: 480px) {
     .container {
         padding: 10px;
