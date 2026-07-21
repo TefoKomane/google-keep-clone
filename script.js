@@ -25,6 +25,36 @@ const noteTitle = document.getElementById('noteTitle');
 const noteContent = document.getElementById('noteContent');
 const notesContainer = document.getElementById('notesContainer');
 
+// dark mode button
+const darkModeBtn = document.getElementById('darkModeBtn');
+
+// check dark mode in storage
+let darkMode = localStorage.getItem('darkMode');
+if (darkMode == 'true') {
+    document.body.classList.add('dark-mode');
+    darkModeBtn.textContent = 'Light Mode';
+}
+
+// dark mode click
+darkModeBtn.addEventListener('click', function() {
+    toggleDarkMode();
+});
+
+// toggle dark mode
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+
+    // check if dark mode is on
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'true');
+        darkModeBtn.textContent = 'Light Mode';
+    } else {
+        localStorage.setItem('darkMode', 'false');
+        darkModeBtn.textContent = 'Dark Mode';
+    }
+}
+
+
 // button click
 addBtn.addEventListener('click', function() {
     addNewNote();
