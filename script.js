@@ -37,6 +37,7 @@ addBtn.addEventListener('click', function() {
 function addNewNote() {
     let title = noteTitle.value;
     let content = noteContent.value;
+    let color = document.getElementById('noteColor').value;
 
     // check empty
     if (title == '' || content == '') {
@@ -48,7 +49,8 @@ function addNewNote() {
     let newNote = {
         id: Date.now(),
         title: title,
-        content: content
+        content: content,
+        color: color
     };
 
     // add to array
@@ -60,7 +62,11 @@ function addNewNote() {
 
     // show notes
     showAllNotes();
+
+    // save to storage
+    saveNotes();
 }
+
 
 // show notes
 function showAllNotes() {
@@ -74,6 +80,7 @@ function showAllNotes() {
         // make div
         let noteElement = document.createElement('div');
         noteElement.className = 'note';
+        noteElement.style.backgroundColor = note.color;
 
         // add html
         noteElement.innerHTML = '<div class="note-title">' + note.title + '</div>';
@@ -84,6 +91,7 @@ function showAllNotes() {
         notesContainer.appendChild(noteElement);
     }
 }
+
 
 // delete note
 function removeNote(noteId) {
