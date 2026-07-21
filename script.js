@@ -154,6 +154,10 @@ function showAllNotes() {
     // clear
     notesContainer.innerHTML = '';
 
+    // update counter
+    document.getElementById('noteCount').textContent = allNotes.length;
+
+
     // loop notes
     for (let i = 0; i < allNotes.length; i++) {
         let note = allNotes[i];
