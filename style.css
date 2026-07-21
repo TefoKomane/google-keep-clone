@@ -316,6 +316,41 @@ body.dark-mode .note-edit:hover {
     background-color: #2e2e2e;
 }
 
+.search-section {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+#searchInput:focus {
+    border-color: #4285F4;
+}
+
+body.dark-mode .search-section {
+    background-color: #262626;
+}
+
+body.dark-mode #searchInput {
+    background-color: #262626;
+    color: #e8eaed;
+    border-color: #404040;
+}
+
+body.dark-mode #searchInput:focus {
+    border-color: #4285F4;
+}
+
 
 @media (max-width: 480px) {
     .container {
